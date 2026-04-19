@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simulación de Enfriamiento</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h2>Simulación de Enfriamiento de un Servidor</h2>
+
+<form method="POST">
+
+    <label>Temperatura inicial (°C):</label><br>
+    <input type="number" name="T0" required><br><br>
+
+    <label>Temperatura ambiente (°C):</label><br>
+    <input type="number" name="Ta" required><br><br>
+
+    <label>Constante k:</label><br>
+    <input type="number" step="0.01" name="k" required><br><br>
+
+    <label>Incremento Δt (min):</label><br>
+    <input type="number" step="0.1" name="dt" required><br><br>
+
+    <button type="submit">Simular</button>
+
+</form>
+
+{% if error %}
+<p class="error">{{ error }}</p>
+{% endif %}
+
+{% if grafica_html %}
+<h3>Gráfica (con animación)</h3>
+{{ grafica_html|safe }}
+{% endif %}
+
+{% if grafica_error_html %}
+<h3>Error</h3>
+{{ grafica_error_html|safe }}
+{% endif %}
+
+{% if tabla %}
+<h3>Tabla</h3>
+<table>
+<tr>
+<th>Tiempo</th>
+<th>Analítica</th>
+<th>Euler</th>
+<th>Error</th>
+</tr>
+
+{% for t,a,e,err in tabla %}
+<tr>
+<td>{{ t }}</td>
+<td>{{ a|round(2) }}</td>
+<td>{{ e|round(2) }}</td>
+<td>{{ err|round(4) }}</td>
+</tr>
+{% endfor %}
+</table>
+
+<br>
+<a href="/pdf"><button>Descargar PDF</button></a>
+
+{% endif %}
+
+</body>
+</html>
