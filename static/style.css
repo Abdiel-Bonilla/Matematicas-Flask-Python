@@ -1,40 +1,102 @@
 body {
-    font-family: Arial;
+    font-family: 'Segoe UI', Arial, sans-serif;
     background: #0f172a;
     color: white;
     text-align: center;
+    padding: 20px;
 }
+
+h1 { color: #22c55e; }
 
 form {
-    margin: 20px;
+    margin: 20px auto;
+    background: #1e293b;
+    padding: 25px;
+    border-radius: 12px;
+    display: inline-block;
+    text-align: left;
 }
 
+.input-group { margin-bottom: 15px; }
+
+label { color: #94a3b8; font-size: 0.9em; }
+
 input {
-    padding: 8px;
-    margin: 5px;
-    border-radius: 5px;
-    border: none;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: 1px solid #334155;
+    background: #0f172a;
+    color: white;
+    max-width: 250px;
+    width: 100%;
 }
 
 button {
-    padding: 10px;
+    padding: 12px;
     background: #22c55e;
     border: none;
     color: white;
-    border-radius: 5px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
+
+button:hover { background: #16a34a; transform: scale(1.02); }
+
+.dashboard {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px auto;
+    max-width: 900px;
+}
+
+.card {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1;
+    border-bottom: 4px solid #3b82f6;
+    transition: transform 0.2s ease;
+}
+
+.card:hover { transform: translateY(-3px); }
+
+.card h3 { margin: 0; color: #3b82f6; }
+.card p { margin: 5px 0 0; font-size: 0.85em; color: #94a3b8; }
+
+.chart-container {
+    background: #1e293b;
+    margin: 20px auto;
+    padding: 15px;
+    border-radius: 12px;
+    width: 95%;
+    position: relative;
+    overflow: hidden;
+}
+.chart-container .modebar {
+    position: absolute !important;
+    top: 10px !important;
+    left: 10px !important;
+    right: auto !important;
+    display: inline-flex !important;
+    gap: 2px; /* ✅ separación mínima entre botones */
+    z-index: 10; /* asegura que sean clicables */
+}
+
+
+
 
 table {
-    margin: auto;
+    margin: 20px auto;
     border-collapse: collapse;
-    width: 80%;
+    width: 90%;
+    background: #1e293b;
+    overflow-x: auto;
 }
 
-th, td {
-    border: 1px solid white;
-    padding: 8px;
-}
-
-.error {
-    color: red;
-}
+th, td { padding: 12px; border: 1px solid #334155; }
+th { background: #334155; color: #22c55e; }
