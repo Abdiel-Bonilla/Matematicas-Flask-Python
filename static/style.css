@@ -132,3 +132,8 @@ th { background: #334155; color: #22c55e; }
     color: #e2e8f0;
     margin-bottom: 8px;
 }
+
+input[type="range"] {
+    width: 100%;
+    accent-color: #22c55e;
+}
