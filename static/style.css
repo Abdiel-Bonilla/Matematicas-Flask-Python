@@ -100,3 +100,35 @@ table {
 
 th, td { padding: 12px; border: 1px solid #334155; }
 th { background: #334155; color: #22c55e; }
+
+.analysis-container {
+    display: flex;
+    gap: 20px;
+    margin: 30px auto;
+    width: 95%;
+    max-width: 1100px;
+    flex-wrap: wrap;
+}
+
+.analysis-card {
+    flex: 1;
+    min-width: 300px;
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: left;
+    border-left: 5px solid #22c55e;
+}
+
+.analysis-card h3 {
+    color: #22c55e;
+}
+
+.analysis-card p {
+    color: #cbd5f5;
+}
+
+.analysis-card li {
+    color: #e2e8f0;
+    margin-bottom: 8px;
+}

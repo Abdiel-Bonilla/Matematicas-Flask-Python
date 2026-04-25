@@ -7,28 +7,29 @@
 </head>
 <body>
 
+    
     <h1>Simulador de Temperatura para Servidores</h1>
-    <p>Introduce los datos requeridos para iniciar el cálculo matemático.</p>
+    <p>Introduce los datos requeridos para iniciar.</p>
 
     <form method="POST">
         <div class="input-group">
-            <label>Temperatura está el servidor ahora (°C):</label><br>
-            <input type="number" name="T0" placeholder="Ej: 80" step="0.1" required>
+            <label>Temperatura de el servidor ahora (°C):</label><br>
+            <input type="number" name="T0" placeholder="00" step="0.1" required>
         </div>
         
         <div class="input-group">
             <label>Temperatura de el cuarto/ambiente (°C):</label><br>
-            <input type="number" name="Ta" placeholder="Ej: 22" step="0.1" required>
+            <input type="number" name="Ta" placeholder="00" step="0.1" required>
         </div>
 
         <div class="input-group">
             <label>Rapidez de enfriamiento (k):</label><br>
-            <input type="number" name="k" placeholder="Ej: 0.05" step="0.001" required>
+            <input type="number" name="k" placeholder="00" step="0.001" required>
         </div>
 
         <div class="input-group">
-            <label>Constante de tiempo (Δt):</label><br>
-            <input type="number" name="dt" placeholder="Ej: 0.1" step="0.01" required>
+            <label>Constante de tiempo:</label><br>
+            <input type="number" name="dt" placeholder="00" step="0.01" required>
         </div>
 
         <br>
@@ -54,6 +55,7 @@
     </div>
     {% endif %}
 
+
     <div class="charts">
         {% if grafica_html %}
             <div class="chart-container">
@@ -69,9 +71,6 @@
     </div>
 
     {% if tabla %}
-    <br>
-    <a href="/pdf"><button style="background: #3b82f6;">Descargar Resultados en PDF</button></a>
-    <br><br>
     
     <h3>Tabla Completa de Datos</h3>
     <table>
@@ -94,7 +93,32 @@
             {% endfor %}
         </tbody>
     </table>
+    
     {% endif %}
+
+     {% if interpretacion %}
+        <div class="analysis-container">
+
+            <div class="analysis-card">
+                <h3>Interpretación del Modelo</h3>
+                <p>{{ interpretacion }}</p>
+            </div>
+
+            <div class="analysis-card">
+                <h3>Recomendaciones</h3>
+                <ul>
+                    {% for rec in recomendaciones %}
+                        <li>{{ rec }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+        </div>
+    {% endif %}
+
+    <br>
+        <a href="/pdf"><button style="background: #3b82f6;">Descargar Resultados en PDF</button></a>
+    <br><br>
 
 </body>
 </html>
